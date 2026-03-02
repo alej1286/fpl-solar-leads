@@ -199,8 +199,14 @@
         </p>
     </footer>
 
-    <!-- Scripts para Idioma y Envío -->
+    <!-- Scripts para Idioma, Envío y EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
+        // 0. Inicializar EmailJS (¡Reemplaza 'TU_PUBLIC_KEY' con tu clave real de EmailJS!)
+        (function(){
+            emailjs.init("TU_PUBLIC_KEY");
+        })();
+
         // 1. Manejo del Idioma (Bilingüe)
         let currentLang = 'es'; // Español por defecto
 
@@ -249,16 +255,37 @@
 
                 const result = await response.json();
 
+                // 3. ENVIAR CORREO VÍA EMAILJS DIRECTO DESDE EL NAVEGADOR
+                // Esto esquiva el bloqueo de puertos de Render.com
+                try {
+                    // Parámetros que le mandaremos al template de EmailJS
+                    const templateParams = {
+                        firstName: formData.get('firstName'),
+                        lastName: formData.get('lastName'),
+                        email: formData.get('email'),
+                        phone: formData.get('phone'),
+                        address: formData.get('address')
+                    };
+
+                    // ¡Reemplaza 'TU_SERVICE_ID' y 'TU_TEMPLATE_ID'!
+                    await emailjs.send(
+                        'TU_SERVICE_ID', 
+                        'TU_TEMPLATE_ID', 
+                        templateParams
+                    );
+                    console.log('✉️ Email de alerta enviado vía EmailJS!');
+                } catch (emailjsError) {
+                    console.error('⚠️ Falló el envío del correo (Revisa tus IDs de EmailJS):', emailjsError);
+                    // No bloqueamos la alerta de éxito al cliente
+                }
+
                 if(response.ok) {
-                    // ÉXITO (Ahora el servidor responde instantáneamente)
+                    // ÉXITO GLOBAL
                     const successMsg = currentLang === 'es' 
                         ? '¡Datos recibidos con éxito! Un analista evaluará tu hogar y te enviará el reporte a tu email.' 
                         : 'Data received successfully! An analyst will evaluate your home and send the report to your email.';
                     
-                    // Mostrar nota técnica si hay algún error con el correo en el servidor
-                    const serverNote = result.serverNote ? '\n\n' + result.serverNote : '';
-                    
-                    alert(successMsg + serverNote);
+                    alert(successMsg);
                     this.reset();
                 } else {
                     // ERROR (Ej: no subió el archivo)
