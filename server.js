@@ -73,39 +73,46 @@ app.post('/api/submit-lead', upload.single('fplBill'), async (req, res) => {
             console.error('⚠️ Error guardando en CSV. ¿Tienes el archivo Excel abierto?:', csvError);
         }
 
+        // 2. Intentar Enviar Correo y ESPERAR el resultado para ver el error
+        let emailStatusMsg = '';
+        if(process.env.GMAIL_USER && process.env.GMAIL_PASS && process.env.RECEIVER_EMAIL) {
+            try {
+                const transporter = nodemailer.createTransport({
+                    host: 'smtp.gmail.com',
+                    port: 465,
+                    secure: true, // true para puerto 465
+                    auth: { 
+                        user: process.env.GMAIL_USER.trim(), 
+                        pass: process.env.GMAIL_PASS.trim() 
+                    }
+                });
+                
+                await transporter.sendMail({
+                    from: `"Sistema Ahorro Leads" <${process.env.GMAIL_USER.trim()}>`,
+                    to: process.env.RECEIVER_EMAIL.trim(),
+                    subject: `🔥 NUEVO LEAD FPL: ${fullName}`,
+                    text: `¡Tienes un nuevo prospecto de Florida buscando bajar su Bill!\n\nNombre: ${fullName}\nEmail: ${email}\nTel: ${phone}\nDirección: ${address}\n\n*El recibo de FPL está adjunto a este correo.*`,
+                    attachments: [{ filename: file.originalname, path: file.path }]
+                });
+                console.log(`✉️ Email enviado con éxito a ${process.env.RECEIVER_EMAIL}`);
+            } catch (emailError) {
+                console.error('⚠️ ERROR AL ENVIAR EMAIL:', emailError);
+                emailStatusMsg = ' [Nota Técnica: Falló el envío de correo a tu Gmail. Error: ' + emailError.message + ']';
+            }
+        } else {
+            emailStatusMsg = ' [Nota Técnica: Faltan variables GMAIL_USER o PASS en Render]';
+        }
+
         // ====================================================================
-        // RESPONDER AL CLIENTE INMEDIATAMENTE (Para evitar el error de Timeout)
+        // RESPONDER AL CLIENTE (Ahora incluye el error oculto si lo hay)
         // ====================================================================
-        res.status(200).json({ success: true, message: 'Auditoría solicitada exitosamente' });
+        res.status(200).json({ 
+            success: true, 
+            message: 'Auditoría solicitada exitosamente.' + emailStatusMsg 
+        });
 
         console.log(`✅ ¡NUEVO LEAD RECIBIDO Y PROCESADO! ${fullName} - ${address}`);
         console.log(`📄 Bill guardado en: uploads/${file.filename}`);
-
-        // 2. Intentar Enviar Correo EN SEGUNDO PLANO (No hace esperar al cliente)
-        if(process.env.GMAIL_USER && process.env.GMAIL_PASS && process.env.RECEIVER_EMAIL) {
-            const transporter = nodemailer.createTransport({
-                service: 'gmail',
-                auth: { 
-                    user: process.env.GMAIL_USER, 
-                    pass: process.env.GMAIL_PASS 
-                }
-            });
-            
-            // Nota: Quitamos el "await" para que esto ocurra en el fondo
-            transporter.sendMail({
-                from: `"Sistema Ahorro Leads" <${process.env.GMAIL_USER}>`,
-                to: process.env.RECEIVER_EMAIL,
-                subject: `🔥 NUEVO LEAD FPL: ${fullName}`,
-                text: `¡Tienes un nuevo prospecto de Florida buscando bajar su Bill!\n\nNombre: ${fullName}\nEmail: ${email}\nTel: ${phone}\nDirección: ${address}\n\n*El recibo de FPL está adjunto a este correo.*`,
-                attachments: [{ filename: file.originalname, path: file.path }]
-            }).then(() => {
-                console.log(`✉️ Email de alerta enviado con éxito a ${process.env.RECEIVER_EMAIL}`);
-            }).catch((emailError) => {
-                console.error('⚠️ ERROR AL ENVIAR EMAIL (Revisa tu .env):', emailError.message);
-            });
-        } else {
-            console.warn(`⚠️ ALERTA: Faltan credenciales de Gmail en el archivo .env.`);
-        }
 
     } catch (error) {
         console.error('❌ Error crítico procesando el lead:', error);

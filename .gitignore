@@ -3,3 +3,14 @@ node_modules/
 uploads/
 leads_solares.csv
 .DS_Store
+
+# Ignorar archivos multimedia y ejecutables que estén sueltos en tu carpeta
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.msi
+*.exe
+*.pdf
+*.zip
+*.rar
