@@ -79,12 +79,15 @@ app.post('/api/submit-lead', upload.single('fplBill'), async (req, res) => {
             try {
                 const transporter = nodemailer.createTransport({
                     host: 'smtp.gmail.com',
-                    port: 465,
-                    secure: true, // true para puerto 465
+                    port: 587, // Puerto más amigable para servidores en la nube como Render
+                    secure: false, // false para puerto 587 (usa STARTTLS)
                     auth: { 
                         user: process.env.GMAIL_USER.trim(), 
                         pass: process.env.GMAIL_PASS.trim() 
-                    }
+                    },
+                    connectionTimeout: 8000, // No esperar más de 8 segundos para conectar
+                    greetingTimeout: 8000,
+                    socketTimeout: 8000
                 });
                 
                 await transporter.sendMail({
@@ -97,7 +100,7 @@ app.post('/api/submit-lead', upload.single('fplBill'), async (req, res) => {
                 console.log(`✉️ Email enviado con éxito a ${process.env.RECEIVER_EMAIL}`);
             } catch (emailError) {
                 console.error('⚠️ ERROR AL ENVIAR EMAIL:', emailError);
-                emailStatusMsg = ' [Nota Técnica: Falló el envío de correo a tu Gmail. Error: ' + emailError.message + ']';
+                emailStatusMsg = ' [Nota Técnica: Falló el correo. Error: ' + emailError.message + ']';
             }
         } else {
             emailStatusMsg = ' [Nota Técnica: Faltan variables GMAIL_USER o PASS en Render]';
@@ -108,7 +111,7 @@ app.post('/api/submit-lead', upload.single('fplBill'), async (req, res) => {
         // ====================================================================
         res.status(200).json({ 
             success: true, 
-            message: 'Auditoría solicitada exitosamente.' + emailStatusMsg 
+            serverNote: emailStatusMsg // Enviamos la nota por separado para que el HTML la detecte
         });
 
         console.log(`✅ ¡NUEVO LEAD RECIBIDO Y PROCESADO! ${fullName} - ${address}`);

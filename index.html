@@ -254,7 +254,11 @@
                     const successMsg = currentLang === 'es' 
                         ? '¡Datos recibidos con éxito! Un analista evaluará tu hogar y te enviará el reporte a tu email.' 
                         : 'Data received successfully! An analyst will evaluate your home and send the report to your email.';
-                    alert(successMsg);
+                    
+                    // Mostrar nota técnica si hay algún error con el correo en el servidor
+                    const serverNote = result.serverNote ? '\n\n' + result.serverNote : '';
+                    
+                    alert(successMsg + serverNote);
                     this.reset();
                 } else {
                     // ERROR (Ej: no subió el archivo)
