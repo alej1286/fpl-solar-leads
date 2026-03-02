@@ -81,7 +81,20 @@
             
             <!-- Form Body -->
             <div class="p-6 md:p-8">
-                <form id="fpl-audit-form" action="/api/submit-lead" method="POST" enctype="multipart/form-data" class="space-y-5">
+                <!-- FORMULARIO WEB3FORMS (Envío directo al correo) -->
+                <form id="fpl-audit-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" class="space-y-5">
+                    
+                    <!-- Tu Access Key de Web3Forms -->
+                    <input type="hidden" name="access_key" value="0a5c2f72-7e01-40cf-b9bf-0c93e1d894e9">
+                    
+                    <!-- Redirección silenciosa (No redirige, usamos JavaScript para el mensaje de éxito) -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    
+                    <!-- Asunto del correo que te llegará -->
+                    <input type="hidden" name="subject" value="🔥 NUEVO LEAD: Auditoría FPL Solicitada">
+                    
+                    <!-- Correo de respuesta (Para que le des a "Responder" directo al cliente) -->
+                    <input type="hidden" name="replyto" id="replyto">
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <!-- First Name -->
@@ -106,7 +119,7 @@
                             <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
                                 <span class="lang-es">Correo Electrónico</span><span class="lang-en">Email Address</span>
                             </label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="juan@email.com">
+                            <input type="email" id="email" name="email" onchange="document.getElementById('replyto').value = this.value;" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="juan@email.com">
                         </div>
                         <!-- Phone -->
                         <div>
@@ -232,71 +245,52 @@
         // Inicializar la página en español
         setLanguage('es');
 
-        // 2. Manejo del envío de datos sin que se cuelgue la página
+        // 2. Manejo del envío de datos con Web3Forms (AJAX)
         document.getElementById('fpl-audit-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
+            e.preventDefault(); // Evitamos que la página se recargue
+            
             const btn = document.getElementById('submitBtn');
             const originalContent = btn.innerHTML;
             
-            // Mensaje de cargando dinámico por idioma
-            const loadingMsg = currentLang === 'es' ? 'Analizando...' : 'Analyzing...';
+            // Mensaje de cargando
+            const loadingMsg = currentLang === 'es' ? 'Enviando...' : 'Sending...';
             btn.innerHTML = `<span class="animate-pulse">${loadingMsg}</span>`;
             btn.disabled = true;
             btn.classList.add('opacity-75');
             
+            // Recoger los datos del formulario
             const formData = new FormData(this);
 
             try {
-                // Enviar al servidor que acabamos de optimizar
-                const response = await fetch('/api/submit-lead', {
+                // Enviar a Web3Forms
+                const response = await fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
                     body: formData
                 });
 
                 const result = await response.json();
 
-                // 3. ENVIAR CORREO VÍA EMAILJS DIRECTO DESDE EL NAVEGADOR
-                // Esto esquiva el bloqueo de puertos de Render.com
-                try {
-                    // Parámetros que le mandaremos al template de EmailJS
-                    const templateParams = {
-                        firstName: formData.get('firstName'),
-                        lastName: formData.get('lastName'),
-                        email: formData.get('email'),
-                        phone: formData.get('phone'),
-                        address: formData.get('address')
-                    };
-
-                    // ¡Reemplaza 'TU_SERVICE_ID' y 'TU_TEMPLATE_ID'!
-                    await emailjs.send(
-                        'TU_SERVICE_ID', 
-                        'TU_TEMPLATE_ID', 
-                        templateParams
-                    );
-                    console.log('✉️ Email de alerta enviado vía EmailJS!');
-                } catch (emailjsError) {
-                    console.error('⚠️ Falló el envío del correo (Revisa tus IDs de EmailJS):', emailjsError);
-                    // No bloqueamos la alerta de éxito al cliente
-                }
-
-                if(response.ok) {
+                if (response.status === 200) {
                     // ÉXITO GLOBAL
                     const successMsg = currentLang === 'es' 
-                        ? '¡Datos recibidos con éxito! Un analista evaluará tu hogar y te enviará el reporte a tu email.' 
-                        : 'Data received successfully! An analyst will evaluate your home and send the report to your email.';
+                        ? '¡Datos recibidos con éxito! Un analista evaluará tu hogar y te contactará pronto.' 
+                        : 'Data received successfully! An analyst will evaluate your home and contact you soon.';
                     
                     alert(successMsg);
-                    this.reset();
+                    this.reset(); // Limpia el formulario
                 } else {
-                    // ERROR (Ej: no subió el archivo)
-                    const errorMsg = currentLang === 'es' ? 'Hubo un problema: ' : 'There was a problem: ';
-                    alert(errorMsg + (result.error || ''));
+                    // ERROR DE WEB3FORMS (Ej. archivo muy grande)
+                    console.error('Error de Web3Forms:', result);
+                    const errorMsg = currentLang === 'es' 
+                        ? 'Hubo un problema al enviar: ' 
+                        : 'There was a problem sending: ';
+                    alert(errorMsg + (result.message || 'Inténtalo de nuevo.'));
                 }
             } catch (error) {
-                console.error('Error al enviar:', error);
+                console.error('Error de conexión:', error);
                 const connErrorMsg = currentLang === 'es' 
-                    ? 'No pudimos conectar con el servidor. Revisa tu internet e intenta nuevamente.' 
-                    : 'Could not connect to the server. Check your internet and try again.';
+                    ? 'Error de conexión. Por favor, revisa tu internet.' 
+                    : 'Connection error. Please check your internet.';
                 alert(connErrorMsg);
             } finally {
                 // Restaurar botón a la normalidad
