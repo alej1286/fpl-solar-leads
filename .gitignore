@@ -1,0 +1,5 @@
+node_modules/
+.env
+uploads/
+leads_solares.csv
+.DS_Store
