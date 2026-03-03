@@ -79,104 +79,30 @@
                 </div>
             </div>
             
-            <!-- Form Body -->
-            <div class="p-6 md:p-8">
-                <!-- FORMULARIO WEB3FORMS (Envío directo al correo) -->
-                <form id="fpl-audit-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" class="space-y-5">
-                    
-                    <!-- Tu Access Key de Web3Forms -->
-                    <input type="hidden" name="access_key" value="0a5c2f72-7e01-40cf-b9bf-0c93e1d894e9">
-                    
-                    <!-- Redirección silenciosa (No redirige, usamos JavaScript para el mensaje de éxito) -->
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                    
-                    <!-- Asunto del correo que te llegará -->
-                    <input type="hidden" name="subject" value="🔥 NUEVO LEAD: Auditoría FPL Solicitada">
-                    
-                    <!-- Correo de respuesta (Para que le des a "Responder" directo al cliente) -->
-                    <input type="hidden" name="replyto" id="replyto">
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <!-- First Name -->
-                        <div>
-                            <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">
-                                <span class="lang-es">Nombre</span><span class="lang-en">First Name</span>
-                            </label>
-                            <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="Juan">
-                        </div>
-                        <!-- Last Name -->
-                        <div>
-                            <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">
-                                <span class="lang-es">Apellido</span><span class="lang-en">Last Name</span>
-                            </label>
-                            <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="Pérez">
-                        </div>
-                    </div>
+            <!-- Form Body (Tally Embed) -->
+            <div class="p-6 md:p-8 min-h-[600px]">
+                <!-- Contenedor Bilingüe para el Título del Formulario -->
+                <div class="text-center mb-6">
+                    <p class="lang-es text-gray-600">Por favor, completa los siguientes datos para recibir tu análisis:</p>
+                    <p class="lang-en text-gray-600">Please complete the following details to receive your analysis:</p>
+                </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <!-- Email -->
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
-                                <span class="lang-es">Correo Electrónico</span><span class="lang-en">Email Address</span>
-                            </label>
-                            <input type="email" id="email" name="email" onchange="document.getElementById('replyto').value = this.value;" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="juan@email.com">
-                        </div>
-                        <!-- Phone -->
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">
-                                <span class="lang-es">Teléfono (Celular)</span><span class="lang-en">Cell Phone Number</span>
-                            </label>
-                            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="(305) 555-0123">
-                        </div>
-                    </div>
-
-                    <!-- Address -->
-                    <div>
-                        <label for="address" class="block text-sm font-medium text-gray-700 mb-1">
-                            <span class="lang-es">Dirección de la Propiedad (Para revisión satelital)</span>
-                            <span class="lang-en">Home Address (For satellite review)</span>
-                        </label>
-                        <input type="text" id="address" name="address" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="1234 SW 8th St, Miami, FL 33130">
-                    </div>
-
-                    <!-- File Upload -->
-                    <div class="mt-6 border-2 border-dashed border-blue-200 bg-blue-50 rounded-xl p-6 text-center hover:bg-blue-100 transition duration-150 ease-in-out">
-                        <label for="fplBill" class="cursor-pointer block">
-                            <div class="mx-auto w-12 h-12 mb-3 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                </svg>
-                            </div>
-                            
-                            <div class="lang-es">
-                                <span class="block text-sm font-medium text-gray-900 mb-1">Sube una foto o PDF de tu Bill de FPL</span>
-                                <span class="block text-xs text-gray-500 mb-4">Asegúrate de que se vea tu consumo de kWh y la dirección.</span>
-                            </div>
-                            <div class="lang-en">
-                                <span class="block text-sm font-medium text-gray-900 mb-1">Upload a photo or PDF of your FPL Bill</span>
-                                <span class="block text-xs text-gray-500 mb-4">Make sure your kWh usage and address are visible.</span>
-                            </div>
-
-                            <input id="fplBill" name="fplBill" type="file" accept="image/*,.pdf" required class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 mx-auto max-w-xs cursor-pointer"/>
-                        </label>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="pt-4">
-                        <button type="submit" id="submitBtn" class="w-full bg-brand text-white font-bold text-lg py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-200 flex justify-center items-center">
-                            <span class="lang-es">Generar Mi Reporte de Ahorro Gratis</span>
-                            <span class="lang-en">Generate My Free Savings Report</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                    </div>
-                    
-                    <p class="text-xs text-center text-gray-400 mt-4">
-                        <span class="lang-es">Tus datos están protegidos. No los venderemos ni te acosaremos con llamadas interminables.</span>
-                        <span class="lang-en">Your data is protected. We will not sell it or harass you with endless calls.</span>
-                    </p>
-                </form>
+                <!-- Iframe de Tally.so (El formulario real) -->
+                <iframe 
+                    data-tally-src="https://tally.so/embed/aQBypX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                    loading="lazy" 
+                    width="100%" 
+                    height="600" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    title="Auditoría FPL">
+                </iframe>
+                
+                <!-- Script oficial de Tally para auto-ajustar la altura del formulario -->
+                <script>
+                    var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+                </script>
             </div>
         </div>
         
@@ -212,14 +138,8 @@
         </p>
     </footer>
 
-    <!-- Scripts para Idioma, Envío y EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Scripts para Idioma -->
     <script>
-        // 0. Inicializar EmailJS (¡Reemplaza 'TU_PUBLIC_KEY' con tu clave real de EmailJS!)
-        (function(){
-            emailjs.init("TU_PUBLIC_KEY");
-        })();
-
         // 1. Manejo del Idioma (Bilingüe)
         let currentLang = 'es'; // Español por defecto
 
@@ -244,61 +164,6 @@
 
         // Inicializar la página en español
         setLanguage('es');
-
-        // 2. Manejo del envío de datos con Web3Forms (AJAX)
-        document.getElementById('fpl-audit-form').addEventListener('submit', async function(e) {
-            e.preventDefault(); // Evitamos que la página se recargue
-            
-            const btn = document.getElementById('submitBtn');
-            const originalContent = btn.innerHTML;
-            
-            // Mensaje de cargando
-            const loadingMsg = currentLang === 'es' ? 'Enviando...' : 'Sending...';
-            btn.innerHTML = `<span class="animate-pulse">${loadingMsg}</span>`;
-            btn.disabled = true;
-            btn.classList.add('opacity-75');
-            
-            // Recoger los datos del formulario
-            const formData = new FormData(this);
-
-            try {
-                // Enviar a Web3Forms
-                const response = await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                const result = await response.json();
-
-                if (response.status === 200) {
-                    // ÉXITO GLOBAL
-                    const successMsg = currentLang === 'es' 
-                        ? '¡Datos recibidos con éxito! Un analista evaluará tu hogar y te contactará pronto.' 
-                        : 'Data received successfully! An analyst will evaluate your home and contact you soon.';
-                    
-                    alert(successMsg);
-                    this.reset(); // Limpia el formulario
-                } else {
-                    // ERROR DE WEB3FORMS (Ej. archivo muy grande)
-                    console.error('Error de Web3Forms:', result);
-                    const errorMsg = currentLang === 'es' 
-                        ? 'Hubo un problema al enviar: ' 
-                        : 'There was a problem sending: ';
-                    alert(errorMsg + (result.message || 'Inténtalo de nuevo.'));
-                }
-            } catch (error) {
-                console.error('Error de conexión:', error);
-                const connErrorMsg = currentLang === 'es' 
-                    ? 'Error de conexión. Por favor, revisa tu internet.' 
-                    : 'Connection error. Please check your internet.';
-                alert(connErrorMsg);
-            } finally {
-                // Restaurar botón a la normalidad
-                btn.innerHTML = originalContent;
-                btn.disabled = false;
-                btn.classList.remove('opacity-75');
-            }
-        });
     </script>
 </body>
 </html>
