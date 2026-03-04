@@ -182,17 +182,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         setLanguage('es');
     </script>
   <script>
-window.addEventListener('message', function(e) {
-  if (e.data && 
-    e.data.type === 
-    'tally-form-submit-complete') {
-    window.dataLayer = 
-      window.dataLayer || [];
-    window.dataLayer.push({
-      'event': 'TallyFormSubmitted'
-    });
-  }
-});
+  window.addEventListener('message', function(e) {
+    // Algunos navegadores ponen el mensaje en e.data como string JSON
+    if (!e.data) return;
+
+    var data = e.data;
+
+    // Si viene como string y contiene "event", intentamos parsear
+    if (typeof data === 'string' && data.indexOf('event') !== -1) {
+      try {
+        data = JSON.parse(data);
+      } catch (err) {
+        return;
+      }
+    }
+
+    // Si después de parsear tenemos un objeto con event = "Tally.FormSubmitted"
+    if (data.event === 'Tally.FormSubmitted') {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'tally_form_submit'
+      });
+    }
+  });
 </script>
+
 </body>
 </html>
