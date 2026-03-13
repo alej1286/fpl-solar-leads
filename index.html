@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-655123272"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-655123272');
+</script>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PFBPLN3G');</script>
+<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auditoría Gratuita de Ahorro FPL | Florida</title>
@@ -18,7 +34,7 @@
     </style>
 </head>
 <body class="bg-energy text-gray-800 antialiased selection:bg-emerald-200">
-
+<!-- Google Tag Manager (noscript) -->
     <!-- Navbar -->
     <nav class="bg-white shadow-sm py-4">
         <div class="max-w-4xl mx-auto px-6 flex justify-between items-center">
@@ -165,5 +181,31 @@
         // Inicializar la página en español
         setLanguage('es');
     </script>
+  <script>
+  window.addEventListener('message', function(e) {
+    // Algunos navegadores ponen el mensaje en e.data como string JSON
+    if (!e.data) return;
+
+    var data = e.data;
+
+    // Si viene como string y contiene "event", intentamos parsear
+    if (typeof data === 'string' && data.indexOf('event') !== -1) {
+      try {
+        data = JSON.parse(data);
+      } catch (err) {
+        return;
+      }
+    }
+
+    // Si después de parsear tenemos un objeto con event = "Tally.FormSubmitted"
+    if (data.event === 'Tally.FormSubmitted') {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'tally_form_submit'
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
