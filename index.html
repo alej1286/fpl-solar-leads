@@ -9,6 +9,13 @@
   gtag('js', new Date());
 
   gtag('config', 'AW-655123272');
+  
+  // Remarketing: Track page views for audience building
+  gtag('event', 'page_view', {
+    'send_to': 'AW-655123272',
+    'page_title': document.title,
+    'page_location': window.location.href
+  });
 </script>
     <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -120,7 +127,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
                 </script>
             </div>
-        </div>
+</div>
         
         <!-- Trust Indicators -->
         <div class="mt-8 flex flex-wrap justify-center items-center gap-6 text-sm text-gray-500 font-medium">
@@ -138,6 +145,72 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <span class="mr-2">✅</span> 
                 <span class="lang-es">Expertos Locales en Florida</span>
                 <span class="lang-en">Local Florida Experts</span>
+            </div>
+        </div>
+        
+        <!-- Social Proof Section -->
+        <div class="mt-12 max-w-3xl mx-auto">
+            <div class="bg-emerald-50 rounded-xl p-6 border border-emerald-100">
+                <div class="text-center mb-4">
+                    <h3 class="text-lg font-bold text-gray-800">
+                        <span class="lang-es">Lo que dicen nuestros clientes</span>
+                        <span class="lang-en">What our customers say</span>
+                    </h3>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <div class="flex items-center mb-2">
+                            <span class="text-yellow-400">★★★★★</span>
+                        </div>
+                        <p class="text-sm text-gray-600 lang-es">"Me ahorré $180 al mes en mi bill de FPL. El proceso fue súper fácil y sin presión de venta."</p>
+                        <p class="text-sm text-gray-600 lang-en">"I saved $180/month on my FPL bill. The process was super easy with no sales pressure."</p>
+                        <p class="text-xs text-gray-400 mt-2">— María G., Coral Gables</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <div class="flex items-center mb-2">
+                            <span class="text-yellow-400">★★★★★</span>
+                        </div>
+                        <p class="text-sm text-gray-600 lang-es">"De $320 bajé a $85 fijos. Best decision I've made for my home this year."</p>
+                        <p class="text-sm text-gray-600 lang-en">"From $320 down to $85 fixed. Best decision I've made for my home this year."</p>
+                        <p class="text-xs text-gray-400 mt-2">— Carlos M., Doral</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FAQ Section -->
+        <div class="mt-12 max-w-3xl mx-auto">
+            <div class="text-center mb-6">
+                <h3 class="text-xl font-bold text-gray-800">
+                    <span class="lang-es">Preguntas Frecuentes</span>
+                    <span class="lang-en">Frequently Asked Questions</span>
+                </h3>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+                    <h4 class="font-semibold text-gray-800 mb-2">
+                        <span class="lang-es">¿Realmente es gratis?</span>
+                        <span class="lang-en">Is it really free?</span>
+                    </h4>
+                    <p class="text-sm text-gray-600 lang-es">Sí, el análisis es 100% gratuito. No hay ningún compromiso ni obligación de compra.</p>
+                    <p class="text-sm text-gray-600 lang-en">Yes, the analysis is 100% free. There's no commitment or obligation to purchase anything.</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+                    <h4 class="font-semibold text-gray-800 mb-2">
+                        <span class="lang-es">¿Cuánto tiempo toma?</span>
+                        <span class="lang-en">How long does it take?</span>
+                    </h4>
+                    <p class="text-sm text-gray-600 lang-es">Sube tu recibo y te contactamos en 24 horas con tu reporte personalizado de ahorro.</p>
+                    <p class="text-sm text-gray-600 lang-en">Upload your bill and we'll contact you within 24 hours with your personalized savings report.</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+                    <h4 class="font-semibold text-gray-800 mb-2">
+                        <span class="lang-es">¿Necesito estar en casa?</span>
+                        <span class="lang-en">Do I need to be home?</span>
+                    </h4>
+                    <p class="text-sm text-gray-600 lang-es">No, usamos tecnología satelital para evaluar tu techo. Todo se hace remotamente.</p>
+                    <p class="text-sm text-gray-600 lang-en">No, we use satellite technology to evaluate your roof. Everything is done remotely.</p>
+                </div>
             </div>
         </div>
     </main>
