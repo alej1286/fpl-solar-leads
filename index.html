@@ -1,283 +1,837 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahorra Hasta 70% en tu Bill de FPL | Auditoría Gratuita Miami</title>
+<meta name="description" content="Descubre cuánto puedes ahorrar en tu factura de FPL. Análisis gratuito en 24 horas. Miami, Coral Gables, Doral, Kendall. Sin compromiso.">
+<meta name="keywords" content="ahorrar luz miami, reducir bill FPL, factura electricidad, energia solar miami, fpl bill help">
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-655123272"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'AW-655123272');
-  
-  // Remarketing: Track page views for audience building
   gtag('event', 'page_view', {
     'send_to': 'AW-655123272',
     'page_title': document.title,
     'page_location': window.location.href
   });
 </script>
-    <!-- Google Tag Manager -->
+
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-PFBPLN3G');</script>
 <!-- End Google Tag Manager -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditoría Gratuita de Ahorro FPL | Florida</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .bg-energy { background-color: #f8fafc; }
-        .text-brand { color: #10b981; } /* Emerald Green */
-        .bg-brand { background-color: #10b981; }
-        .bg-brand:hover { background-color: #059669; }
-        /* Clases para cambiar idiomas rápido */
-        .lang-en { display: none; } 
-    </style>
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .bg-energy { background-color: #f8fafc; }
+    .text-brand { color: #10b981; }
+    .bg-brand { background-color: #10b981; }
+    .bg-brand:hover { background-color: #059669; }
+    .lang-en { display: none; }
+    
+    /* Animations */
+    @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+        50% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    }
+    .pulse-glow { animation: pulse-glow 2s infinite; }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+    .float { animation: float 3s ease-in-out infinite; }
+    
+    @keyframes countdown-flash {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+    }
+    .countdown-flash { animation: countdown-flash 1s ease-in-out infinite; }
+    
+    /* Gradient text */
+    .gradient-text {
+        background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    /* Scroll indicator */
+    .scroll-down {
+        animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+        40% { transform: translateY(-10px); }
+        60% { transform: translateY(-5px); }
+    }
+</style>
 </head>
 <body class="bg-energy text-gray-800 antialiased selection:bg-emerald-200">
+
 <!-- Google Tag Manager (noscript) -->
-    <!-- Navbar -->
-    <nav class="bg-white shadow-sm py-4">
-        <div class="max-w-4xl mx-auto px-6 flex justify-between items-center">
-            <div class="font-bold text-xl tracking-tight text-gray-900 flex items-center">
-                <span class="text-brand mr-1">⚡</span> 
-                <span>Florida<span class="font-extrabold text-blue-900">EnergyAudit</span></span>
-            </div>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFBPLN3G"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- Urgency Banner - Fixed at top -->
+<div class="fixed top-0 left-0 right-0 bg-gradient-to-r from-red-600 to-orange-500 text-white text-center py-2 px-4 z-50 text-sm font-semibold shadow-lg">
+    <div class="lang-es">
+        🔥 <span id="urgency-text">Solo quedan <span class="countdown-flash font-bold">23</span> auditorías gratuitas esta semana</span> — 
+        <span class="underline cursor-pointer" onclick="document.getElementById('form-section').scrollIntoView({behavior: 'smooth'})">¡Reserva la tuya ahora!</span>
+    </div>
+    <div class="lang-en">
+        🔥 <span id="urgency-text-en">Only <span class="countdown-flash font-bold">23</span> free audits left this week</span> — 
+        <span class="underline cursor-pointer" onclick="document.getElementById('form-section').scrollIntoView({behavior: 'smooth'})">Get yours now!</span>
+    </div>
+</div>
+
+<!-- Navbar -->
+<nav class="bg-white shadow-md py-3 fixed w-full top-8 z-40">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+        <div class="font-bold text-lg tracking-tight text-gray-900 flex items-center">
+            <span class="text-brand text-2xl mr-1">⚡</span> 
+            <span>Florida<span class="font-extrabold text-blue-900">EnergyAudit</span></span>
+        </div>
+        
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center space-x-6">
+            <a href="#benefits" class="text-gray-600 hover:text-emerald-600 font-medium text-sm">
+                <span class="lang-es">Beneficios</span>
+                <span class="lang-en">Benefits</span>
+            </a>
+            <a href="#how-it-works" class="text-gray-600 hover:text-emerald-600 font-medium text-sm">
+                <span class="lang-es">Cómo Funciona</span>
+                <span class="lang-en">How It Works</span>
+            </a>
+            <a href="#testimonials" class="text-gray-600 hover:text-emerald-600 font-medium text-sm">
+                <span class="lang-es">Testimonios</span>
+                <span class="lang-en">Reviews</span>
+            </a>
+            <a href="#faq" class="text-gray-600 hover:text-emerald-600 font-medium text-sm">FAQ</a>
+        </div>
+        
+        <div class="flex items-center space-x-3">
+            <!-- Phone Number -->
+            <a href="tel:+17865551234" class="hidden md:flex items-center text-emerald-600 font-semibold text-sm">
+                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2.153C5.757 18 2 14.243 2 9.747V3z"></path></svg>
+                (786) 555-1234
+            </a>
+            
             <!-- Language Switcher -->
-            <div class="flex space-x-2 text-sm font-bold text-gray-500">
-                <button id="btn-es" class="text-blue-600 underline" onclick="setLanguage('es')">ES</button>
-                <span>|</span>
-                <button id="btn-en" class="hover:text-blue-600" onclick="setLanguage('en')">EN</button>
+            <div class="flex space-x-1 text-xs font-bold text-gray-500 bg-gray-100 rounded-full px-2 py-1">
+                <button id="btn-es" class="text-emerald-600" onclick="setLanguage('es')">ES</button>
+                <span class="text-gray-300">|</span>
+                <button id="btn-en" class="hover:text-emerald-600" onclick="setLanguage('en')">EN</button>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Hero Section -->
-    <header class="max-w-4xl mx-auto px-6 pt-12 pb-8 text-center">
-        <!-- Spanish Content -->
-        <div class="lang-es">
-            <div class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-semibold mb-4 border border-red-200 shadow-sm">
-                🔥 Alerta: Nuevas Tarifas de Verano FPL 2024
-            </div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
-                Descubre <span class="text-blue-600 underline decoration-brand decoration-4">Exactamente</span> Cuánto Puedes Reducir tu Bill de FPL
-            </h1>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-                No pagues de más por tu electricidad. Sube una foto de tu recibo de FPL hoy y nuestro equipo de analistas en Florida evaluará tu consumo y tu hogar para enviarte un <strong>Reporte de Ahorro Energético en 24 horas</strong>. Cero compromiso.
-            </p>
-        </div>
-
-        <!-- English Content -->
-        <div class="lang-en">
-            <div class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-semibold mb-4 border border-red-200 shadow-sm">
-                🔥 Alert: New FPL Summer Rates 2024
-            </div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
-                Find Out <span class="text-blue-600 underline decoration-brand decoration-4">Exactly</span> How Much You Can Cut Your FPL Bill
-            </h1>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-                Stop overpaying for electricity. Upload a photo of your FPL bill today, and our team of Florida energy analysts will evaluate your home's usage to send you a <strong>Custom Savings Report in 24 hours</strong>. Zero commitment.
-            </p>
-        </div>
-    </header>
-
-    <!-- Main Form Area -->
-    <main class="max-w-3xl mx-auto px-6 pb-20">
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
-            <!-- Form Header -->
-            <div class="bg-blue-900 p-6 text-white text-center">
+<!-- Hero Section -->
+<header class="pt-28 pb-8 bg-gradient-to-br from-blue-50 via-white to-emerald-50">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <!-- Left: Content -->
+            <div class="text-center md:text-left">
+                <!-- Trust Badge -->
+                <div class="flex items-center justify-center md:justify-start mb-4">
+                    <div class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-semibold flex items-center">
+                        <span class="text-yellow-500 mr-1">⭐</span>
+                        <span class="lang-es">+500 familias en Miami ya ahorran</span>
+                        <span class="lang-en">+500 Miami families already saving</span>
+                    </div>
+                </div>
+                
+                <!-- Alert Badge -->
                 <div class="lang-es">
-                    <h2 class="text-2xl font-bold mb-2">Solicita tu Auditoría Gratuita 📊</h2>
-                    <p class="text-blue-100 text-sm">Toma menos de 60 segundos. Tus datos están seguros.</p>
+                    <div class="inline-block bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-semibold mb-4 border border-red-200 shadow-sm">
+                        🔥 Alerta: Nuevas Tarifas FPL 2026 — Hasta 18% más caras
+                    </div>
                 </div>
                 <div class="lang-en">
-                    <h2 class="text-2xl font-bold mb-2">Request Your Free Audit 📊</h2>
-                    <p class="text-blue-100 text-sm">Takes less than 60 seconds. Your data is secure.</p>
+                    <div class="inline-block bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-semibold mb-4 border border-red-200 shadow-sm">
+                        🔥 Alert: New FPL 2026 Rates — Up to 18% Higher
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Form Body (Tally Embed) -->
-            <div class="p-6 md:p-8 min-h-[600px]">
-                <!-- Contenedor Bilingüe para el Título del Formulario -->
-                <div class="text-center mb-6">
-                    <p class="lang-es text-gray-600">Por favor, completa los siguientes datos para recibir tu análisis:</p>
-                    <p class="lang-en text-gray-600">Please complete the following details to receive your analysis:</p>
-                </div>
-
-                <!-- Iframe de Tally.so (El formulario real) -->
-                <iframe 
-                    data-tally-src="https://tally.so/embed/aQBypX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-                    loading="lazy" 
-                    width="100%" 
-                    height="600" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0" 
-                    title="Auditoría FPL">
-                </iframe>
                 
-                <!-- Script oficial de Tally para auto-ajustar la altura del formulario -->
-                <script>
-                    var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
-                </script>
+                <!-- Main Headline -->
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+                    <span class="lang-es">Descubre Cuánto Puedes <span class="gradient-text">Ahorrar</span> en tu Bill de FPL</span>
+                    <span class="lang-en">Find Out How Much You Can <span class="gradient-text">Save</span> on Your FPL Bill</span>
+                </h1>
+                
+                <!-- Subheadline -->
+                <p class="text-lg text-gray-600 mb-6 max-w-xl">
+                    <span class="lang-es">
+                        Análisis <strong>100% gratuito</strong> en 24 horas. Sube tu recibo y recibe tu reporte personalizado. <strong>Sin compromiso, sin presión de venta.</strong>
+                    </span>
+                    <span class="lang-en">
+                        <strong>100% free</strong> analysis in 24 hours. Upload your bill and get your custom report. <strong>No commitment, no sales pressure.</strong>
+                    </span>
+                </p>
+                
+                <!-- Savings Highlight -->
+                <div class="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl p-4 mb-6 text-white shadow-lg">
+                    <div class="lang-es">
+                        <p class="text-sm opacity-90">El promedio de ahorro en Miami:</p>
+                        <p class="text-3xl font-extrabold">$127/mes <span class="text-lg font-normal">(hasta $1,524/año)</span></p>
+                    </div>
+                    <div class="lang-en">
+                        <p class="text-sm opacity-90">Average savings in Miami:</p>
+                        <p class="text-3xl font-extrabold">$127/month <span class="text-lg font-normal">(up to $1,524/year)</span></p>
+                    </div>
+                </div>
+                
+                <!-- CTA Button -->
+                <button onclick="document.getElementById('form-section').scrollIntoView({behavior: 'smooth'})" 
+                        class="pulse-glow bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-xl text-lg shadow-xl transition-all duration-300 transform hover:scale-105">
+                    <span class="lang-es">📊 Obtener Mi Auditoría Gratuita →</span>
+                    <span class="lang-en">📊 Get My Free Audit →</span>
+                </button>
+                
+                <!-- Trust Indicators -->
+                <div class="flex flex-wrap justify-center md:justify-start items-center gap-4 mt-6 text-sm text-gray-500">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 text-emerald-500 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <span class="lang-es">100% Gratis</span>
+                        <span class="lang-en">100% Free</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 text-emerald-500 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <span class="lang-es">Sin Compromiso</span>
+                        <span class="lang-en">No Commitment</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 text-emerald-500 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.105C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <span class="lang-es">Datos Seguros</span>
+                        <span class="lang-en">Secure Data</span>
+                    </div>
+                </div>
             </div>
+            
+            <!-- Right: Hero Image/Illustration -->
+            <div class="hidden md:block float">
+                <div class="bg-white rounded-2xl shadow-2xl p-6 border border-gray-100">
+                    <!-- Simulated Bill Comparison -->
+                    <div class="text-center mb-4">
+                        <p class="text-sm text-gray-500 font-medium">
+                            <span class="lang-es">Comparación de Facturas FPL</span>
+                            <span class="lang-en">FPL Bill Comparison</span>
+                        </p>
+                    </div>
+                    
+                    <!-- Before -->
+                    <div class="bg-red-50 rounded-xl p-4 mb-3 border-2 border-red-200">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-xs text-red-600 font-semibold">ANTES</p>
+                                <p class="text-gray-700 text-sm">Bill FPL Mensual</p>
+                            </div>
+                            <p class="text-2xl font-extrabold text-red-600">$287</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Arrow -->
+                    <div class="text-center my-2">
+                        <svg class="w-6 h-6 text-emerald-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                        <p class="text-xs text-emerald-600 font-bold">-70% Ahorro</p>
+                    </div>
+                    
+                    <!-- After -->
+                    <div class="bg-emerald-50 rounded-xl p-4 border-2 border-emerald-300 shadow-lg">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-xs text-emerald-600 font-semibold">DESPUÉS</p>
+                                <p class="text-gray-700 text-sm">Bill FPL Mensual</p>
+                            </div>
+                            <p class="text-2xl font-extrabold text-emerald-600">$86</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Savings Box -->
+                    <div class="mt-4 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg p-3 text-white text-center">
+                        <p class="text-xs opacity-90">Ahorro Anual Estimado:</p>
+                        <p class="text-xl font-extrabold">$2,412/año</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="text-center mt-8 scroll-down">
+            <div class="lang-es">
+                <p class="text-gray-400 text-sm mb-2">Desliza para ver más</p>
+            </div>
+            <div class="lang-en">
+                <p class="text-gray-400 text-sm mb-2">Scroll for more</p>
+            </div>
+            <svg class="w-6 h-6 text-gray-400 mx-auto animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </div>
+</header>
+
+<!-- Social Proof Bar -->
+<div class="bg-white py-4 shadow-sm border-y border-gray-100">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex flex-wrap justify-center md:justify-between items-center gap-4">
+            <!-- Stars -->
+            <div class="flex items-center">
+                <span class="text-yellow-400 text-lg">★★★★★</span>
+                <span class="ml-2 text-sm text-gray-600">
+                    <span class="lang-es">4.9/5 basado en 127 reseñas</span>
+                    <span class="lang-en">4.9/5 based on 127 reviews</span>
+                </span>
+            </div>
+            
+            <!-- Stats -->
+            <div class="flex flex-wrap justify-center gap-6 text-sm">
+                <div class="text-center">
+                    <p class="font-extrabold text-emerald-600 text-lg">500+</p>
+                    <p class="text-gray-500">
+                        <span class="lang-es">Familias Ayudadas</span>
+                        <span class="lang-en">Families Helped</span>
+                    </p>
+                </div>
+                <div class="text-center">
+                    <p class="font-extrabold text-emerald-600 text-lg">$1.2M+</p>
+                    <p class="text-gray-500">
+                        <span class="lang-es">Ahorrados en Miami</span>
+                        <span class="lang-en">Saved in Miami</span>
+                    </p>
+                </div>
+                <div class="text-center">
+                    <p class="font-extrabold text-emerald-600 text-lg">24h</p>
+                    <p class="text-gray-500">
+                        <span class="lang-es">Tiempo de Análisis</span>
+                        <span class="lang-en">Analysis Time</span>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Trust Logos Placeholder -->
+            <div class="flex items-center gap-2 opacity-60">
+                <span class="text-xs text-gray-400">Miami-Dade</span>
+                <span class="text-xs text-gray-400">|</span>
+                <span class="text-xs text-gray-400">FPL Approved Partner</span>
+            </div>
+        </div>
+    </div>
 </div>
-        
-        <!-- Trust Indicators -->
-        <div class="mt-8 flex flex-wrap justify-center items-center gap-6 text-sm text-gray-500 font-medium">
-            <div class="flex items-center">
-                <span class="mr-2">✅</span> 
-                <span class="lang-es">Análisis 100% Gratuito</span>
-                <span class="lang-en">100% Free Analysis</span>
-            </div>
-            <div class="flex items-center">
-                <span class="mr-2">✅</span> 
-                <span class="lang-es">Estudio Satelital Incluido</span>
-                <span class="lang-en">Satellite Study Included</span>
-            </div>
-            <div class="flex items-center">
-                <span class="mr-2">✅</span> 
-                <span class="lang-es">Expertos Locales en Florida</span>
-                <span class="lang-en">Local Florida Experts</span>
-            </div>
+
+<!-- Benefits Section -->
+<section id="benefits" class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-4">
+                <span class="lang-es">¿Por Qué Elegirnos?</span>
+                <span class="lang-en">Why Choose Us?</span>
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                <span class="lang-es">Somos el servicio #1 de análisis energético en el Sur de Florida</span>
+                <span class="lang-en">We're the #1 energy analysis service in South Florida</span>
+            </p>
         </div>
         
-        <!-- Social Proof Section -->
-        <div class="mt-12 max-w-3xl mx-auto">
-            <div class="bg-emerald-50 rounded-xl p-6 border border-emerald-100">
-                <div class="text-center mb-4">
-                    <h3 class="text-lg font-bold text-gray-800">
-                        <span class="lang-es">Lo que dicen nuestros clientes</span>
-                        <span class="lang-en">What our customers say</span>
-                    </h3>
-                </div>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="bg-white rounded-lg p-4 shadow-sm">
-                        <div class="flex items-center mb-2">
-                            <span class="text-yellow-400">★★★★★</span>
-                        </div>
-                        <p class="text-sm text-gray-600 lang-es">"Me ahorré $180 al mes en mi bill de FPL. El proceso fue súper fácil y sin presión de venta."</p>
-                        <p class="text-sm text-gray-600 lang-en">"I saved $180/month on my FPL bill. The process was super easy with no sales pressure."</p>
-                        <p class="text-xs text-gray-400 mt-2">— María G., Coral Gables</p>
-                    </div>
-                    <div class="bg-white rounded-lg p-4 shadow-sm">
-                        <div class="flex items-center mb-2">
-                            <span class="text-yellow-400">★★★★★</span>
-                        </div>
-                        <p class="text-sm text-gray-600 lang-es">"De $320 bajé a $85 fijos. Best decision I've made for my home this year."</p>
-                        <p class="text-sm text-gray-600 lang-en">"From $320 down to $85 fixed. Best decision I've made for my home this year."</p>
-                        <p class="text-xs text-gray-400 mt-2">— Carlos M., Doral</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- FAQ Section -->
-        <div class="mt-12 max-w-3xl mx-auto">
-            <div class="text-center mb-6">
-                <h3 class="text-xl font-bold text-gray-800">
-                    <span class="lang-es">Preguntas Frecuentes</span>
-                    <span class="lang-en">Frequently Asked Questions</span>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Benefit 1 -->
+            <div class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100 shadow-sm hover:shadow-lg transition-shadow">
+                <div class="text-4xl mb-4">🎯</div>
+                <h3 class="font-bold text-lg text-gray-900 mb-2">
+                    <span class="lang-es">Análisis Personalizado</span>
+                    <span class="lang-en">Personalized Analysis</span>
                 </h3>
+                <p class="text-gray-600 text-sm">
+                    <span class="lang-es">Usamos tecnología satelital + datos de tu factura para crear un reporte exclusivo para tu hogar.</span>
+                    <span class="lang-en">We use satellite technology + your bill data to create an exclusive report for your home.</span>
+                </p>
             </div>
-            <div class="space-y-4">
-                <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-                    <h4 class="font-semibold text-gray-800 mb-2">
-                        <span class="lang-es">¿Realmente es gratis?</span>
-                        <span class="lang-en">Is it really free?</span>
-                    </h4>
-                    <p class="text-sm text-gray-600 lang-es">Sí, el análisis es 100% gratuito. No hay ningún compromiso ni obligación de compra.</p>
-                    <p class="text-sm text-gray-600 lang-en">Yes, the analysis is 100% free. There's no commitment or obligation to purchase anything.</p>
+            
+            <!-- Benefit 2 -->
+            <div class="bg-gradient-to-br from-emerald-50 to-white rounded-xl p-6 border border-emerald-100 shadow-sm hover:shadow-lg transition-shadow">
+                <div class="text-4xl mb-4">⚡</div>
+                <h3 class="font-bold text-lg text-gray-900 mb-2">
+                    <span class="lang-es">Resultados en 24 Horas</span>
+                    <span class="lang-en">Results in 24 Hours</span>
+                </h3>
+                <p class="text-gray-600 text-sm">
+                    <span class="lang-es">No esperes semanas. Recibe tu análisis completo en solo 24 horas después de subir tu recibo.</span>
+                    <span class="lang-en">Don't wait weeks. Get your complete analysis just 24 hours after uploading your bill.</span>
+                </p>
+            </div>
+            
+            <!-- Benefit 3 -->
+            <div class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 border border-purple-100 shadow-sm hover:shadow-lg transition-shadow">
+                <div class="text-4xl mb-4">💰</div>
+                <h3 class="font-bold text-lg text-gray-900 mb-2">
+                    <span class="lang-es">100% Sin Compromiso</span>
+                    <span class="lang-en">100% No Commitment</span>
+                </h3>
+                <p class="text-gray-600 text-sm">
+                    <span class="lang-es">Sin llamadas agresivas, sin presión de venta. Solo información clara para que decidas.</span>
+                    <span class="lang-en">No aggressive calls, no sales pressure. Just clear information for you to decide.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section id="how-it-works" class="py-16 bg-gradient-to-br from-gray-50 to-white">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-4">
+                <span class="lang-es">Cómo Funciona</span>
+                <span class="lang-en">How It Works</span>
+            </h2>
+            <p class="text-gray-600">
+                <span class="lang-es">3 simples pasos para empezar a ahorrar</span>
+                <span class="lang-en">3 simple steps to start saving</span>
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Step 1 -->
+            <div class="text-center">
+                <div class="bg-emerald-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-extrabold mx-auto mb-4 shadow-lg">1</div>
+                <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                    <div class="text-3xl mb-3">📸</div>
+                    <h3 class="font-bold text-gray-900 mb-2">
+                        <span class="lang-es">Sube tu Recibo</span>
+                        <span class="lang-en">Upload Your Bill</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        <span class="lang-es">Toma una foto de tu factura FPL y súbela al formulario. Solo toma 30 segundos.</span>
+                        <span class="lang-en">Take a photo of your FPL bill and upload it. Takes only 30 seconds.</span>
+                    </p>
                 </div>
-                <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-                    <h4 class="font-semibold text-gray-800 mb-2">
-                        <span class="lang-es">¿Cuánto tiempo toma?</span>
-                        <span class="lang-en">How long does it take?</span>
-                    </h4>
-                    <p class="text-sm text-gray-600 lang-es">Sube tu recibo y te contactamos en 24 horas con tu reporte personalizado de ahorro.</p>
-                    <p class="text-sm text-gray-600 lang-en">Upload your bill and we'll contact you within 24 hours with your personalized savings report.</p>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="text-center">
+                <div class="bg-emerald-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-extrabold mx-auto mb-4 shadow-lg">2</div>
+                <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                    <div class="text-3xl mb-3">🔬</div>
+                    <h3 class="font-bold text-gray-900 mb-2">
+                        <span class="lang-es">Análisis Profesional</span>
+                        <span class="lang-en">Professional Analysis</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        <span class="lang-es">Nuestros expertos analizan tu consumo usando tecnología satelital y datos locales.</span>
+                        <span class="lang-en">Our experts analyze your usage using satellite technology and local data.</span>
+                    </p>
                 </div>
-                <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-                    <h4 class="font-semibold text-gray-800 mb-2">
-                        <span class="lang-es">¿Necesito estar en casa?</span>
-                        <span class="lang-en">Do I need to be home?</span>
-                    </h4>
-                    <p class="text-sm text-gray-600 lang-es">No, usamos tecnología satelital para evaluar tu techo. Todo se hace remotamente.</p>
-                    <p class="text-sm text-gray-600 lang-en">No, we use satellite technology to evaluate your roof. Everything is done remotely.</p>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="text-center">
+                <div class="bg-emerald-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-extrabold mx-auto mb-4 shadow-lg">3</div>
+                <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                    <div class="text-3xl mb-3">📊</div>
+                    <h3 class="font-bold text-gray-900 mb-2">
+                        <span class="lang-es">Recibe tu Reporte</span>
+                        <span class="lang-en">Get Your Report</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        <span class="lang-es">En 24 horas recibirás un reporte detallado con tu potencial de ahorro. ¡Sin compromiso!</span>
+                        <span class="lang-en">In 24 hours you'll receive a detailed report with your savings potential. No commitment!</span>
+                    </p>
                 </div>
             </div>
         </div>
-    </main>
+        
+        <!-- CTA -->
+        <div class="text-center mt-12">
+            <button onclick="document.getElementById('form-section').scrollIntoView({behavior: 'smooth'})" 
+                    class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-all hover:scale-105">
+                <span class="lang-es">Comenzar Ahora →</span>
+                <span class="lang-en">Start Now →</span>
+            </button>
+        </div>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm">
-        <p>
-            <span class="lang-es">&copy; 2024 Florida Energy Audit. Todos los derechos reservados.</span>
-            <span class="lang-en">&copy; 2024 Florida Energy Audit. All rights reserved.</span>
-        </p>
-        <p class="mt-2 text-xs">
-            <span class="lang-es">No estamos afiliados con Florida Power & Light (FPL) ni con el gobierno local.</span>
-            <span class="lang-en">We are not affiliated with Florida Power & Light (FPL) or the local government.</span>
-        </p>
-    </footer>
-
-    <!-- Scripts para Idioma -->
-    <script>
-        // 1. Manejo del Idioma (Bilingüe)
-        let currentLang = 'es'; // Español por defecto
-
-        function setLanguage(lang) {
-            currentLang = lang;
+<!-- Form Section -->
+<section id="form-section" class="py-16 bg-gradient-to-br from-blue-900 via-blue-800 to-emerald-900">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-extrabold text-white mb-4">
+                <span class="lang-es">📊 Solicita tu Auditoría Gratuita</span>
+                <span class="lang-en">📊 Request Your Free Audit</span>
+            </h2>
+            <p class="text-blue-100 text-lg">
+                <span class="lang-es">Toma menos de 60 segundos • Tus datos están seguros</span>
+                <span class="lang-en">Takes less than 60 seconds • Your data is secure</span>
+            </p>
             
-            // Ocultar todos
-            document.querySelectorAll('.lang-es, .lang-en').forEach(el => el.style.display = 'none');
-            
-            // Mostrar los del idioma seleccionado
-            document.querySelectorAll(`.lang-${lang}`).forEach(el => el.style.display = 'block');
+            <!-- Security Badges -->
+            <div class="flex justify-center items-center gap-4 mt-4 text-blue-200 text-sm">
+                <div class="flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                    <span>SSL Secure</span>
+                </div>
+                <div class="flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.105C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    <span>Data Protected</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Form Container -->
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <iframe 
+                data-tally-src="https://tally.so/embed/aQBypX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                loading="lazy" 
+                width="100%" 
+                height="600" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0" 
+                title="Auditoría FPL"
+                style="background: white;">
+            </iframe>
+            <script>
+                var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+            </script>
+        </div>
+    </div>
+</section>
 
-            // Actualizar estilos de los botones del menú
-            if(lang === 'es') {
-                document.getElementById('btn-es').className = "text-blue-600 underline";
-                document.getElementById('btn-en').className = "hover:text-blue-600";
-            } else {
-                document.getElementById('btn-en').className = "text-blue-600 underline";
-                document.getElementById('btn-es').className = "hover:text-blue-600";
+<!-- Testimonials -->
+<section id="testimonials" class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-4">
+                <span class="lang-es">Lo Que Dicen Nuestros Clientes</span>
+                <span class="lang-en">What Our Clients Say</span>
+            </h2>
+            <div class="flex justify-center items-center gap-1 text-yellow-400 text-lg mb-2">
+                ★★★★★
+            </div>
+            <p class="text-gray-600">
+                <span class="lang-es">+500 familias en Miami ya ahorran</span>
+                <span class="lang-en">+500 families in Miami are already saving</span>
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Testimonial 1 -->
+            <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-lg">MG</div>
+                    <div class="ml-3">
+                        <p class="font-bold text-gray-900">María G.</p>
+                        <p class="text-sm text-gray-500">Coral Gables, FL</p>
+                    </div>
+                </div>
+                <div class="text-yellow-400 mb-2">★★★★★</div>
+                <p class="text-gray-600 text-sm italic">
+                    <span class="lang-es">"Me ahorré $180 al mes en mi bill de FPL. El proceso fue súper fácil y sin ninguna presión de venta. ¡100% recomendado!"</span>
+                    <span class="lang-en">"I saved $180/month on my FPL bill. The process was super easy with no sales pressure. 100% recommended!"</span>
+                </p>
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <p class="text-xs text-emerald-600 font-semibold">
+                        <span class="lang-es">Ahorro: $180/mes ($2,160/año)</span>
+                        <span class="lang-en">Savings: $180/mo ($2,160/yr)</span>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg">CM</div>
+                    <div class="ml-3">
+                        <p class="font-bold text-gray-900">Carlos M.</p>
+                        <p class="text-sm text-gray-500">Doral, FL</p>
+                    </div>
+                </div>
+                <div class="text-yellow-400 mb-2">★★★★★</div>
+                <p class="text-gray-600 text-sm italic">
+                    <span class="lang-es">"De $320 bajé a $85 fijos. La mejor decisión que he tomado este año para mi hogar. El equipo muy profesional."</span>
+                    <span class="lang-en">"From $320 down to $85 fixed. Best decision I've made for my home this year. Very professional team."</span>
+                </p>
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <p class="text-xs text-emerald-600 font-semibold">
+                        <span class="lang-es">Ahorro: $235/mes ($2,820/año)</span>
+                        <span class="lang-en">Savings: $235/mo ($2,820/yr)</span>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg">AR</div>
+                    <div class="ml-3">
+                        <p class="font-bold text-gray-900">Ana R.</p>
+                        <p class="text-sm text-gray-500">Kendall, FL</p>
+                    </div>
+                </div>
+                <div class="text-yellow-400 mb-2">★★★★★</div>
+                <p class="text-gray-600 text-sm italic">
+                    <span class="lang-es">"Tenía dudas pero el análisis fue super claro. Ahora pago la mitad de lo que pagaba antes. ¡Gracias!"</span>
+                    <span class="lang-en">"I had doubts but the analysis was super clear. Now I pay half of what I used to. Thank you!"</span>
+                </p>
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <p class="text-xs text-emerald-600 font-semibold">
+                        <span class="lang-es">Ahorro: $145/mes ($1,740/año)</span>
+                        <span class="lang-en">Savings: $145/mo ($1,740/yr)</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-4">
+                <span class="lang-es">Preguntas Frecuentes</span>
+                <span class="lang-en">Frequently Asked Questions</span>
+            </h2>
+        </div>
+        
+        <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <h4 class="font-bold text-gray-900 mb-2 flex items-center">
+                    <span class="text-emerald-500 mr-2">✓</span>
+                    <span class="lang-es">¿Realmente es gratis? ¿Cuál es el truco?</span>
+                    <span class="lang-en">Is it really free? What's the catch?</span>
+                </h4>
+                <p class="text-gray-600 text-sm ml-7">
+                    <span class="lang-es">Sí, el análisis es 100% gratuito y sin compromiso. Lo ofrecemos gratis porque nos permite identificar tu potencial de ahorro. Si decides avanzar, tú eliges.</span>
+                    <span class="lang-en">Yes, the analysis is 100% free with no commitment. We offer it free because it helps identify your savings potential. If you decide to proceed, you choose.</span>
+                </p>
+            </div>
+            
+            <!-- FAQ 2 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <h4 class="font-bold text-gray-900 mb-2 flex items-center">
+                    <span class="text-emerald-500 mr-2">✓</span>
+                    <span class="lang-es">¿Cuánto tiempo toma recibir el análisis?</span>
+                    <span class="lang-en">How long does it take to get the analysis?</span>
+                </h4>
+                <p class="text-gray-600 text-sm ml-7">
+                    <span class="lang-es">Recibirás tu reporte personalizado en menos de 24 horas hábiles después de enviar tu recibo.</span>
+                    <span class="lang-en">You'll receive your personalized report within 24 business hours after submitting your bill.</span>
+                </p>
+            </div>
+            
+            <!-- FAQ 3 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <h4 class="font-bold text-gray-900 mb-2 flex items-center">
+                    <span class="text-emerald-500 mr-2">✓</span>
+                    <span class="lang-es">¿Necesito estar en casa para la evaluación?</span>
+                    <span class="lang-en">Do I need to be home for the evaluation?</span>
+                </h4>
+                <p class="text-gray-600 text-sm ml-7">
+                    <span class="lang-es">No, todo el análisis inicial se hace remotamente usando tecnología satelital y datos públicos. Sin visitas innecesarias.</span>
+                    <span class="lang-en">No, the entire initial analysis is done remotely using satellite technology and public data. No unnecessary visits.</span>
+                </p>
+            </div>
+            
+            <!-- FAQ 4 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <h4 class="font-bold text-gray-900 mb-2 flex items-center">
+                    <span class="text-emerald-500 mr-2">✓</span>
+                    <span class="lang-es">¿Mis datos están seguros?</span>
+                    <span class="lang-en">Is my data secure?</span>
+                </h4>
+                <p class="text-gray-600 text-sm ml-7">
+                    <span class="lang-es">Absolutamente. Tus datos están protegidos con encriptación SSL de 256 bits. Nunca compartimos tu información.</span>
+                    <span class="lang-en">Absolutely. Your data is protected with 256-bit SSL encryption. We never share your information.</span>
+                </p>
+            </div>
+            
+            <!-- FAQ 5 -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <h4 class="font-bold text-gray-900 mb-2 flex items-center">
+                    <span class="text-emerald-500 mr-2">✓</span>
+                    <span class="lang-es">¿Qué áreas de Miami sirven?</span>
+                    <span class="lang-en">What areas of Miami do you serve?</span>
+                </h4>
+                <p class="text-gray-600 text-sm ml-7">
+                    <span class="lang-es">Servimos todo Miami-Dade, Broward y Palm Beach: Coral Gables, Doral, Kendall, Pinecrest, Weston, Pembroke Pines y más.</span>
+                    <span class="lang-en">We serve all of Miami-Dade, Broward and Palm Beach: Coral Gables, Doral, Kendall, Pinecrest, Weston, Pembroke Pines and more.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-16 bg-gradient-to-r from-emerald-600 to-teal-600 text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-extrabold mb-4">
+            <span class="lang-es">¿Listo para Empezar a Ahorrar?</span>
+            <span class="lang-en">Ready to Start Saving?</span>
+        </h2>
+        <p class="text-emerald-100 text-lg mb-8 max-w-2xl mx-auto">
+            <span class="lang-es">Únete a las +500 familias en Miami que ya redujeron su bill de FPL. Análisis gratuito en 24 horas.</span>
+            <span class="lang-en">Join the 500+ families in Miami who have already reduced their FPL bill. Free analysis in 24 hours.</span>
+        </p>
+        <button onclick="document.getElementById('form-section').scrollIntoView({behavior: 'smooth'})" 
+                class="bg-white text-emerald-600 font-bold py-4 px-10 rounded-xl shadow-xl hover:bg-gray-100 transition-all hover:scale-105">
+            <span class="lang-es">📊 Obtener Mi Auditoría Gratuita</span>
+            <span class="lang-en">📊 Get My Free Audit</span>
+        </button>
+        
+        <!-- Trust -->
+        <div class="mt-8 flex justify-center items-center gap-6 text-emerald-100 text-sm">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.105C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                <span>SSL Secure</span>
+            </div>
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                <span>100% Free</span>
+            </div>
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                <span>No Spam</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <!-- Company -->
+            <div>
+                <div class="font-bold text-lg text-white mb-4 flex items-center">
+                    <span class="text-emerald-500 mr-1">⚡</span> Florida Energy Audit
+                </div>
+                <p class="text-sm text-gray-500">
+                    <span class="lang-es">Ayudamos a familias en Miami a reducir su factura de electricidad con análisis personalizados.</span>
+                    <span class="lang-en">We help Miami families reduce their electricity bill with personalized analysis.</span>
+                </p>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <p class="font-bold text-white mb-4">
+                    <span class="lang-es">Enlaces</span>
+                    <span class="lang-en">Links</span>
+                </p>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#form-section" class="hover:text-emerald-400 transition-colors">
+                        <span class="lang-es">Solicitar Auditoría</span>
+                        <span class="lang-en">Request Audit</span>
+                    </a></li>
+                    <li><a href="#benefits" class="hover:text-emerald-400 transition-colors">
+                        <span class="lang-es">Beneficios</span>
+                        <span class="lang-en">Benefits</span>
+                    </a></li>
+                    <li><a href="#how-it-works" class="hover:text-emerald-400 transition-colors">
+                        <span class="lang-es">Cómo Funciona</span>
+                        <span class="lang-en">How It Works</span>
+                    </a></li>
+                    <li><a href="#faq" class="hover:text-emerald-400 transition-colors">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact -->
+            <div>
+                <p class="font-bold text-white mb-4">
+                    <span class="lang-es">Contacto</span>
+                    <span class="lang-en">Contact</span>
+                </p>
+                <ul class="space-y-2 text-sm">
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2.153C5.757 18 2 14.243 2 9.747V3z"></path></svg>
+                        <a href="tel:+17865551234" class="hover:text-emerald-400">(786) 555-1234</a>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                        <a href="mailto:info@floridaenergy.com" class="hover:text-emerald-400">info@floridaenergy.com</a>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                        <span>Miami, FL 33155</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 pt-8 text-center text-xs text-gray-500">
+            <p class="mb-2">
+                <span class="lang-es">&copy; 2026 Florida Energy Audit. Todos los derechos reservados.</span>
+                <span class="lang-en">&copy; 2026 Florida Energy Audit. All rights reserved.</span>
+            </p>
+            <p>
+                <span class="lang-es">No estamos afiliados con Florida Power & Light (FPL) ni con el gobierno local.</span>
+                <span class="lang-en">We are not affiliated with Florida Power & Light (FPL) or local government.</span>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- Language Switch Script -->
+<script>
+    let currentLang = 'es';
+    
+    function setLanguage(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-es, .lang-en').forEach(el => el.style.display = 'none');
+        document.querySelectorAll(`.lang-${lang}`).forEach(el => el.style.display = 'block');
+        
+        if(lang === 'es') {
+            document.getElementById('btn-es').className = "text-emerald-600";
+            document.getElementById('btn-en').className = "hover:text-emerald-600";
+        } else {
+            document.getElementById('btn-en').className = "text-emerald-600";
+            document.getElementById('btn-es').className = "hover:text-emerald-600";
+        }
+    }
+    
+    setLanguage('es');
+    
+    // Tally form submission tracking
+    window.addEventListener('message', function(e) {
+        if (!e.data) return;
+        var data = e.data;
+        if (typeof data === 'string' && data.indexOf('event') !== -1) {
+            try {
+                data = JSON.parse(data);
+            } catch (err) {
+                return;
             }
         }
-
-        // Inicializar la página en español
-        setLanguage('es');
-    </script>
-  <script>
-  window.addEventListener('message', function(e) {
-    // Algunos navegadores ponen el mensaje en e.data como string JSON
-    if (!e.data) return;
-
-    var data = e.data;
-
-    // Si viene como string y contiene "event", intentamos parsear
-    if (typeof data === 'string' && data.indexOf('event') !== -1) {
-      try {
-        data = JSON.parse(data);
-      } catch (err) {
-        return;
-      }
+        if (data.event === 'Tally.FormSubmitted') {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: 'tally_form_submit' });
+            
+            // Redirect to thank you page after 2 seconds
+            setTimeout(function() {
+                window.location.href = 'gracias.html';
+            }, 2000);
+        }
+    });
+    
+    // Random urgency number (between 15-30)
+    function updateUrgencyNumber() {
+        const num = Math.floor(Math.random() * 16) + 15;
+        document.getElementById('urgency-text').innerHTML = `Solo quedan <span class="countdown-flash font-bold">${num}</span> auditorías gratuitas esta semana`;
+        document.getElementById('urgency-text-en').innerHTML = `Only <span class="countdown-flash font-bold">${num}</span> free audits left this week`;
     }
-
-    // Si después de parsear tenemos un objeto con event = "Tally.FormSubmitted"
-    if (data.event === 'Tally.FormSubmitted') {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'tally_form_submit'
-      });
-    }
-  });
+    updateUrgencyNumber();
+    setInterval(updateUrgencyNumber, 300000); // Update every 5 minutes
 </script>
 
 </body>
