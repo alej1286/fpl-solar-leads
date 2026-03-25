@@ -1,16 +1,24 @@
-node_modules/
-.env
-uploads/
-leads_solares.csv
-.DS_Store
+# Ignorar TODO por defecto
+*
 
-# Ignorar archivos multimedia y ejecutables que estén sueltos en tu carpeta
-*.jpg
+# EXCEPTO estos archivos (solo subir estos a GitHub)
+!index.html
+!gracias.html
+!.gitignore
+
+# Pero permitir que .gitignore se rastree
+!.gitignore
+
+# Ignorar tambien estos directorios y archivos específicos
+.env
+.memory/
+*.md
+textos-nextdoor.html
+tracking-leads.csv
 *.jpeg
+*.jpg
 *.png
 *.gif
-*.msi
-*.exe
 *.pdf
 *.zip
 *.rar
