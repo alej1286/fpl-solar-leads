@@ -33,12 +33,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-    body { font-family: 'Inter', sans-serif; }
+    body { font-family: 'Inter', sans-serif; padding-top: 130px; }
+    @media (min-width: 768px) { body { padding-top: 90px; } }
     .bg-energy { background-color: #f8fafc; }
     .text-brand { color: #10b981; }
     .bg-brand { background-color: #10b981; }
     .bg-brand:hover { background-color: #059669; }
-    .lang-en { display: none; }
+    .lang-en, .lang-en.inline { display: none; }
+    .lang-es.inline { display: inline; }
     
     /* Animations */
     @keyframes pulse-glow {
@@ -97,7 +99,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- Navbar -->
-<nav class="bg-white shadow-md py-3 fixed w-full top-8 z-40">
+<nav class="bg-white shadow-md py-3 fixed w-full top-10 z-40">
     <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
         <div class="font-bold text-lg tracking-tight text-gray-900 flex items-center">
             <span class="text-brand text-2xl mr-1">⚡</span> 
@@ -133,7 +135,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 
 <!-- Hero Section -->
-<header class="pt-28 pb-8 bg-gradient-to-br from-blue-50 via-white to-emerald-50">
+<header class="pt-4 pb-8 bg-gradient-to-br from-blue-50 via-white to-emerald-50">
     <div class="max-w-6xl mx-auto px-4">
         <div class="grid md:grid-cols-2 gap-8 items-center">
             <!-- Left: Content -->
@@ -225,12 +227,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </p>
                     </div>
                     
-                    <!-- Before -->
-                    <div class="bg-red-50 rounded-xl p-4 mb-3 border-2 border-red-200">
+                    <!-- Before --><div class="bg-red-50 rounded-xl p-4 mb-3 border-2 border-red-200">
                         <div class="flex justify-between items-center">
                             <div>
-                                <p class="text-xs text-red-600 font-semibold">ANTES</p>
-                                <p class="text-gray-700 text-sm">Bill FPL Mensual</p>
+                                <p class="text-xs text-red-600 font-semibold">
+                                    <span class="lang-es">ANTES</span>
+                                    <span class="lang-en">BEFORE</span>
+                                </p>
+                                <p class="text-gray-700 text-sm">
+                                    <span class="lang-es">Bill FPL Mensual</span>
+                                    <span class="lang-en">Monthly FPL Bill</span>
+                                </p>
                             </div>
                             <p class="text-2xl font-extrabold text-red-600">$380</p>
                         </div>
@@ -238,16 +245,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
                     <!-- Arrow -->
                     <div class="text-center my-2">
-                        <svg class="w-6 h-6 text-emerald-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-                        <p class="text-xs text-emerald-600 font-bold">-60% Ahorro</p>
+                        <svg class="w-6 h-6 text-emerald-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 2424"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                        <p class="text-xs text-emerald-600 font-bold">
+                            <span class="lang-es">-60% Ahorro</span>
+                            <span class="lang-en">-60% Savings</span>
+                        </p>
                     </div>
                     
                     <!-- After -->
                     <div class="bg-emerald-50 rounded-xl p-4 border-2 border-emerald-300 shadow-lg">
                         <div class="flex justify-between items-center">
                             <div>
-                                <p class="text-xs text-emerald-600 font-semibold">DESPUÉS</p>
-                                <p class="text-gray-700 text-sm">Bill FPL Mensual</p>
+                                <p class="text-xs text-emerald-600 font-semibold">
+                                    <span class="lang-es">DESPUÉS</span>
+                                    <span class="lang-en">AFTER</span>
+                                </p>
+                                <p class="text-gray-700 text-sm">
+                                    <span class="lang-es">Bill FPL Mensual</span>
+                                    <span class="lang-en">Monthly FPL Bill</span>
+                                </p>
                             </div>
                             <p class="text-2xl font-extrabold text-emerald-600">$155</p>
                         </div>
@@ -255,8 +271,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
                     <!-- Savings Box -->
                     <div class="mt-4 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg p-3 text-white text-center">
-                        <p class="text-xs opacity-90">Ahorro Anual Estimado:</p>
-                        <p class="text-xl font-extrabold">$2,700/año</p>
+                        <p class="text-xs opacity-90">
+                            <span class="lang-es">Ahorro Anual Estimado:</span>
+                            <span class="lang-en">Estimated Annual Savings:</span>
+                        </p>
+                        <p class="text-xl font-extrabold">$2,700<span class="lang-es">/año</span><span class="lang-en">/year</span></p>
                     </div>
                 </div>
             </div>
@@ -906,9 +925,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     function setLanguage(lang) {
         currentLang = lang;
-        document.querySelectorAll('.lang-es, .lang-en').forEach(el => el.style.display = 'none');
-        document.querySelectorAll(`.lang-${lang}`).forEach(el => el.style.display = 'block');
         
+        // Hide all language elements first
+        document.querySelectorAll('.lang-es, .lang-en').forEach(el => {
+            el.style.display = 'none';
+        });
+        
+        // Show only the selected language
+        document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+            const tagName = el.tagName.toLowerCase();
+            if (tagName === 'span') {
+                el.style.display = 'inline';
+            } else if (tagName === 'div') {
+                el.style.display = 'block';
+            } else {
+                el.style.display = 'block';
+            }
+        });
+        
+        // Update button styles
         if(lang === 'es') {
             document.getElementById('btn-es').className = "text-emerald-600";
             document.getElementById('btn-en').className = "hover:text-emerald-600";
@@ -916,6 +951,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             document.getElementById('btn-en').className = "text-emerald-600";
             document.getElementById('btn-es').className = "hover:text-emerald-600";
         }
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = lang;
     }
     
     setLanguage('es');
