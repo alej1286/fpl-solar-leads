@@ -6,10 +6,13 @@
 !gracias.html
 !.gitignore
 
-# Pero permitir que .gitignore se rastree
-!.gitignore
+# Imágenes de testimonios (permitir explícitamente)
+!1she.png
+!2she.png
+!3he.png
+!4he.png
 
-# Ignorar tambien estos directorios y archivos específicos
+# Ignorar archivos específicos
 .env
 .memory/
 *.md
@@ -17,7 +20,6 @@ textos-nextdoor.html
 tracking-leads.csv
 *.jpeg
 *.jpg
-*.png
 *.gif
 *.pdf
 *.zip
