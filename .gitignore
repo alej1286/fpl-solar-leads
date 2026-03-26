@@ -6,11 +6,14 @@
 !gracias.html
 !.gitignore
 
-# Imágenes de testimonios (permitir explícitamente)
+# Imágenes de testimonios y storytelling (permitir)
 !1she.png
 !2she.png
 !3he.png
 !4he.png
+!1-preocupacion.png
+!2-analisis.png
+!3-alivio.png
 
 # Ignorar archivos específicos
 .env
