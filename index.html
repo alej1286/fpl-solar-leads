@@ -15,6 +15,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PFBPLN3G');</script>
 <!-- End Google Tag Manager -->
 
+<!-- Google tag (gtag.js) - Google Ads Conversion Tracking -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-655123272"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-655123272');
+</script>
+
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1019,7 +1028,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     setLanguage('es');
     
-    // Tally form submission tracking
+    // Google Ads Conversion tracking function
+    function gtag_report_conversion(url) {
+        var callback = function () {
+            if (typeof(url) != 'undefined') {
+                window.location = url;
+            }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-655123272/RSSQCJWgk5McEMjGsbgC',
+            'event_callback': callback
+        });
+        return false;
+    }
+
+    // Tally form submission tracking - FIRE CONVERSION IMMEDIATELY
     window.addEventListener('message', function(e) {
         if (!e.data) return;
         var data = e.data;
@@ -1031,13 +1054,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         }
         if (data.event === 'Tally.FormSubmitted') {
+            // Push to GTM dataLayer (for analytics)
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({ event: 'tally_form_submit' });
             
-            // Redirect to thank you page after 2 seconds
-            setTimeout(function() {
-                window.location.href = 'gracias.html';
-            }, 2000);
+            // FIRE GOOGLE ADS CONVERSION IMMEDIATELY (with callback to redirect)
+            // This ensures conversion is tracked BEFORE redirect
+            gtag_report_conversion('gracias.html');
         }
     });
     
